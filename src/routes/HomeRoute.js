@@ -18,7 +18,7 @@ export const HomeRoute = ({}) => {
             height: 50,
             backgroundColor: Colors.background,
           },
-          // headerTitleAlign: "center",
+          headerTitleAlign: "center",
           headerTintColor: Colors.white,
         }}
         initialRouteName="Home"

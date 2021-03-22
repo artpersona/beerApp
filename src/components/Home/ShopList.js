@@ -19,10 +19,7 @@ export default function ShopList({ shops, selectShop }) {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => selectShop(item)}>
-            <Image
-              source={require("../../img/pizza.jpg")}
-              style={styles.shopList__image}
-            />
+            <Image source={{ uri: item.file }} style={styles.shopList__image} />
           </TouchableOpacity>
         )}
       />
@@ -52,7 +49,7 @@ const styles = StyleSheet.create({
     height: 80,
     borderRadius: 80 / 2,
     margin: 5,
-    // borderColor: "lightgray",
-    // borderWidth: 1,
+    borderColor: "#222",
+    borderWidth: 1,
   },
 });

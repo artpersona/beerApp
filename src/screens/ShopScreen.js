@@ -28,7 +28,7 @@ export default function ShopScreen({ route }) {
     <View style={styles.shopScreen}>
       {/* <Text style={styles.shopItem__name}>{route.params.name}</Text> */}
       <Image
-        source={{ uri: route.params.imgUrl }}
+        source={{ uri: route.params.file }}
         style={styles.shopScreen__image}
       />
       <Text style={styles.title}>All Updates</Text>
@@ -46,9 +46,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   shopScreen__image: {
-    width: 150,
-    height: 150,
-    borderRadius: 150 / 2,
+    width: 120,
+    height: 120,
+    borderRadius: 120 / 2,
     marginVertical: 10,
   },
   shopItem__name: {
