@@ -7,15 +7,15 @@ export const ShopContext = createContext();
 export const ShopProvider = ({ children }) => {
   const { database } = useFirebaseContext();
   const [shops, setShops] = useState([]);
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchShops();
+    fetchProducts();
   }, []);
 
   const fetchShops = () => {
-    console.log("fetching..");
-
     database.ref("categories").on("value", (snapshot) => {
       let result = [];
       if (snapshot && snapshot.val()) {
@@ -23,12 +23,28 @@ export const ShopProvider = ({ children }) => {
       }
       setShops(result);
       setLoading(false);
-      console.log(result);
     });
+  };
+
+  const fetchProducts = () => {
+    database
+      .ref("products")
+      .orderByChild("newsfeed")
+      .equalTo("on")
+      .on("value", (snapshot) => {
+        let result = [];
+        if (snapshot && snapshot.val()) {
+          result = collectIdsAndDocs(snapshot.val());
+        }
+        setProducts(result);
+        setLoading(false);
+        console.log("PRODUCTS", result);
+      });
   };
 
   const payload = {
     shops,
+    products,
     loading,
   };
 
