@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import UpdateList from "../components/Home/UpdateList";
-import Colors from "../shared/styles/Colors";
+import UpdateList from "../../components/Home/UpdateList";
+import Colors from "../../shared/styles/Colors";
+import { ShopsRoute } from "../../routes/ShopsRoute";
 
 export default function ShopScreen({ route }) {
   const [feeds, setFeeds] = useState([
@@ -27,12 +28,15 @@ export default function ShopScreen({ route }) {
   return (
     <View style={styles.shopScreen}>
       {/* <Text style={styles.shopItem__name}>{route.params.name}</Text> */}
-      <Image
-        source={{ uri: route.params.file }}
-        style={styles.shopScreen__image}
-      />
-      <Text style={styles.title}>All Updates</Text>
-      <UpdateList feeds={feeds} />
+      <View style={styles.shopScreen__header}>
+        <Image
+          source={{ uri: route.params.file }}
+          style={styles.shopScreen__image}
+        />
+      </View>
+      {/* <Text style={styles.title}>All Updates</Text> */}
+      {/* <UpdateList feeds={feeds} /> */}
+      <ShopsRoute />
     </View>
   );
 }
@@ -40,9 +44,11 @@ export default function ShopScreen({ route }) {
 const styles = StyleSheet.create({
   shopScreen: {
     flex: 1,
-    paddingHorizontal: 10,
     backgroundColor: Colors.background,
-    borderTopColor: "transparent",
+    paddingHorizontal: 10,
+  },
+  shopScreen__header: {
+    justifyContent: "center",
     alignItems: "center",
   },
   shopScreen__image: {

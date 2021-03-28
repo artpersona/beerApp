@@ -1,35 +1,40 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
-import ShopScreen from "../screens/ShopScreen";
-import ProductScreen from "../screens/ProductScreen";
+import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
+import { NavigationContainer } from "@react-navigation/native";
+import Updates from "../screens/ShopScreen/Updates";
+import Products from "../screens/ShopScreen/Products";
+import Colors from "../shared/styles/Colors";
 
-const Stack = createStackNavigator();
+const Tab = createMaterialTopTabNavigator();
 
-export const ShopsRoute = ({}) => {
+export const ShopsRoute = () => {
   return (
-    <Stack.Navigator
-      screenOptions={
-        {
-          // header: () => null,
-        }
-      }
-      initialRouteName="HomeShop"
+    // <NavigationContainer>
+    <Tab.Navigator
+      initialRouteName="Home"
+      tabBarOptions={{
+        activeTintColor: Colors.white,
+        inactiveTintColor: Colors.primary,
+        activeBackgroundColor: "orange",
+        style: {
+          backgroundColor: Colors.background,
+        },
+        indicatorStyle: {
+          backgroundColor: Colors.primary,
+        },
+        labelStyle: {
+          fontSize: 14,
+          paddingBottom: 5,
+        },
+      }}
     >
-      <Stack.Screen
-        options={{
-          header: () => null,
-        }}
-        name="HomeShop"
-        component={ShopScreen}
+      <Tab.Screen
+        name="Updates"
+        options={{ tabBarLabel: "All Updates" }}
+        component={Updates}
       />
-      <Stack.Screen
-        options={{
-          // header: () => null,
-          headerTitle: () => null,
-        }}
-        name="Product"
-        component={ProductScreen}
-      />
-    </Stack.Navigator>
+      <Tab.Screen name="Products" component={Products} />
+    </Tab.Navigator>
+    // </NavigationContainer>
   );
 };

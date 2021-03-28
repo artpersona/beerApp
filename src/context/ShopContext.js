@@ -38,7 +38,7 @@ export const ShopProvider = ({ children }) => {
         }
         setProducts(result);
         setLoading(false);
-        console.log("PRODUCTS", result);
+        // console.log("PRODUCTS", result);
       });
   };
 

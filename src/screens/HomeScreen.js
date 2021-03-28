@@ -1,50 +1,12 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  ScrollView,
-  Button,
-  Linking,
-} from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import ShopList from "../components/Home/ShopList";
 import UpdateList from "../components/Home/UpdateList";
 import Colors from "../shared/styles/Colors";
-import * as WebBrowser from "expo-web-browser";
 import { useShopContext } from "../context/ShopContext";
 
 export default function HomeScreen({ navigation }) {
   const { shops } = useShopContext();
-  // const [shops, setShops] = useState([
-  //   {
-  //     id: "1",
-  //     name: "Hokaido",
-  //     imgUrl:
-  //       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1200px-RedDot_Burger.jpg",
-  //   },
-  //   {
-  //     id: "2",
-  //     name: "Creamline",
-  //     imgUrl:
-  //       "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/RedDot_Burger.jpg/1200px-RedDot_Burger.jpg",
-  //   },
-  //   {
-  //     id: "3",
-  //     name: "Hello",
-  //   },
-  //   {
-  //     id: "4",
-  //     name: "Hello",
-  //   },
-  //   {
-  //     id: "5",
-  //     name: "Hello",
-  //   },
-  //   {
-  //     id: "6",
-  //     name: "Hello",
-  //   },
-  // ]);
 
   const [feeds, setFeeds] = useState([
     {
@@ -68,7 +30,6 @@ export default function HomeScreen({ navigation }) {
   ]);
 
   const selectShop = (item) => {
-    console.log(item);
     navigation.navigate("Shop", item);
   };
 

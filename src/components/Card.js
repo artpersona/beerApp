@@ -1,36 +1,21 @@
 import React from "react";
-import { Image, StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
 import Colors from "../shared/styles/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function Card({ feed }) {
-  // const sendNotifications = async (token) => {
-  //   const message = {
-  //     to: token,
-  //     sound: "default",
-  //     title: "Sureplus update",
-  //     body: "New feed from Sureplus, check it out!",
-  //     data: { data: "goes here" },
-  //   };
-
-  //   await fetch("https://exp.host/--/api/v2/push/send", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Accept-encoding": "gzip, deflate",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(message),
-  //   });
-  // };
-
-  // const notifyUsers = () => {
-  //   db.collection("users")
-  //     .get()
-  //     .then((result) => {
-  //       result.docs.map((doc) => sendNotifications(doc.id));
-  //     });
-  // };
+  const redirect = () => {
+    Linking.openURL(
+      "https://expo.io/--/to-exp/exp%3A%2F%2Fexp.host%2F%40jperez1738%2Fdavao-market"
+    );
+  };
   return (
     <LinearGradient
       colors={["#0FEFFD", "#FF00F5"]}
@@ -67,7 +52,7 @@ export default function Card({ feed }) {
           </View>
           <Text style={styles.card__name}>{feed.name}</Text>
           <Text style={styles.card__caption}>{feed.caption}</Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={() => redirect()}>
             <View style={styles.card__button}>
               <Text style={styles.card__buttonText}>ORDER NOW</Text>
             </View>
