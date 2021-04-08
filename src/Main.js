@@ -16,7 +16,7 @@ export default function Main() {
           .child(
             token.split("-").join("").split("[").join("").split("]").join("")
           )
-          .set({ key: token });
+          .set({ expoToken: token });
       }
     }
     registerToken();

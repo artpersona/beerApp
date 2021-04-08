@@ -41,7 +41,7 @@ export default function ShopList({ shops, selectShop }) {
 
 const styles = StyleSheet.create({
   shopList: {
-    paddingVertical: 10,
+    paddingVertical: 5,
     // marginBottom: 5,
   },
   shopList__list: {
@@ -67,10 +67,11 @@ const styles = StyleSheet.create({
     fontWeight: "700",
   },
   shopList__image: {
-    width: 60,
-    height: 60,
-    borderRadius: 80 / 2,
-    margin: 5,
+    width: 55,
+    height: 55,
+    borderRadius: 55 / 2,
+    marginVertical: 5,
+    marginHorizontal: 2,
     borderColor: "#222",
     borderWidth: 1,
   },

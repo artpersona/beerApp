@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { collectIdsAndDocs } from "../shared/utilities";
+import { formatNewsfeed } from "../shared/utilities";
 import { useFirebaseContext } from "../context/FirebaseContext";
 
 export const ShopContext = createContext();
@@ -9,11 +10,16 @@ export const ShopProvider = ({ children }) => {
   const [shops, setShops] = useState([]);
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [feeds, setFeeds] = useState([]);
 
   useEffect(() => {
     fetchShops();
     fetchProducts();
   }, []);
+
+  useEffect(() => {
+    getFeeds();
+  }, [shops, products]);
 
   const fetchShops = () => {
     database.ref("categories").on("value", (snapshot) => {
@@ -38,14 +44,50 @@ export const ShopProvider = ({ children }) => {
         }
         setProducts(result);
         setLoading(false);
-        // console.log("PRODUCTS", result);
       });
+  };
+
+  const getFeeds = () => {
+    // var newFeeds = shops
+    // .map((shop) => ({ ...shop.newsfeed, store_id: shop.key }))
+    // .filter((value) => value !== undefined);
+    // .filter((value) => value.newsfeed_status === "Enabled");
+    // var finalFeeds = newFeeds.map((value) => collectIdsAndDocs(value));
+    // console.log("NEW FEEDS", newFeeds);
+
+    var feedsFromShops = [];
+    shops.forEach((shop) => {
+      var newsfeed = shop.newsfeed;
+      if (newsfeed !== undefined) {
+        var feedOne = formatNewsfeed(newsfeed, shop.key);
+        feedsFromShops = feedsFromShops.concat(feedOne);
+      }
+    });
+
+    feedsFromShops = feedsFromShops.filter(
+      (item) => item.newsfeed_status === "Enabled"
+    );
+
+    var finalFeeds = feedsFromShops
+      .concat(products)
+      .sort((x, y) => new Date(y.date_update) - new Date(x.date_update));
+
+    setFeeds(finalFeeds);
+  };
+
+  const getShopInfo = (id) => {
+    if (id) {
+      var shop = shops.find((shop) => shop.id === id);
+      if (shop) return { name: shop.name, file: shop.file };
+    }
   };
 
   const payload = {
     shops,
+    feeds,
     products,
     loading,
+    getShopInfo,
   };
 
   return (

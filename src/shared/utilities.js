@@ -6,6 +6,17 @@ export const collectIdsAndDocs = (data) => {
   return newData;
 };
 
+export const formatNewsfeed = (data, storeKey) => {
+  let newData = [];
+  Object.entries(data).forEach(([key, value]) => {
+    newData = [
+      ...newData,
+      { id: key, store_key: storeKey, category: "custom_feed", ...value },
+    ];
+  });
+  return newData;
+};
+
 import Constants from "expo-constants";
 import * as Notifications from "expo-notifications";
 

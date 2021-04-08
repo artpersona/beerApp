@@ -11,16 +11,15 @@ import Colors from "../shared/styles/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { useShopContext } from "../context/ShopContext";
 
-export default function Card({ feed }) {
+export default function Product({ product }) {
+  // console.log("product card", product);
   const { getShopInfo } = useShopContext();
-  var shopInfo = getShopInfo(feed.store_key);
-
+  var shopInfo = getShopInfo(product.store_id);
   const redirect = () => {
     Linking.openURL(
       "https://expo.io/--/to-exp/exp%3A%2F%2Fexp.host%2F%40jperez1738%2Fdavao-market"
     );
   };
-
   return (
     <LinearGradient
       colors={["#0FEFFD", "#FF00F5"]}
@@ -43,29 +42,31 @@ export default function Card({ feed }) {
             </View>
           </View>
         </View>
+
         <View style={styles.card__body}>
-          {feed.file && (
+          {product.file && (
             <View style={styles.card__imageContainer}>
               <Image
-                source={{ uri: feed.file }}
+                source={{ uri: product.file }}
                 style={styles.card__image}
                 resizeMode="contain"
               />
             </View>
           )}
-          {feed.title && <Text style={styles.card__name}>{feed.title}</Text>}
-          {feed.text && <Text style={styles.card__caption}>{feed.text}</Text>}
-          {feed.price && (
-            <Text style={styles.card__price}>
-              <Text style={styles.card__label}>Price:</Text>{" "}
-              {parseInt(feed.price).toFixed(2)}
-            </Text>
-          )}
-          {feed.stock && (
-            <Text style={styles.card__price}>
-              <Text style={styles.card__label}>Stock:</Text> {feed.stock}
-            </Text>
-          )}
+
+          <Text style={styles.card__name}>{product.name}</Text>
+
+          <Text style={styles.card__caption}>{product.description}</Text>
+
+          <Text style={styles.card__price}>
+            <Text style={styles.card__label}>Price:</Text>{" "}
+            {parseInt(product.price).toFixed(2)}
+          </Text>
+
+          <Text style={styles.card__price}>
+            <Text style={styles.card__label}>Stock:</Text> {product.stock}
+          </Text>
+
           <TouchableOpacity onPress={() => redirect()}>
             <View style={styles.card__button}>
               <Text style={styles.card__buttonText}>ORDER NOW</Text>
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   card__name: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: "700",
     textAlign: "center",
     color: "#fff",
@@ -132,10 +133,21 @@ const styles = StyleSheet.create({
   },
   card__body: {},
   card__caption: {
-    fontSize: 16,
+    fontSize: 15,
     paddingVertical: 10,
     // color: Colors.primary,
+    textAlign: "center",
     color: "#C4C4C4",
+  },
+  card__price: {
+    fontSize: 15,
+    // paddingVertical: 5,
+    // color: Colors.primary,
+    textAlign: "justify",
+    color: "#C4C4C4",
+  },
+  card__label: {
+    fontWeight: "700",
   },
   card__imageContainer: {
     borderRadius: 10,
@@ -147,6 +159,7 @@ const styles = StyleSheet.create({
     height: 250,
     width: undefined,
     borderRadius: 5,
+    borderRadius: 10,
   },
   card__button: {
     backgroundColor: "purple",
