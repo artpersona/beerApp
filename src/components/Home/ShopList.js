@@ -19,6 +19,7 @@ export default function ShopList({ shops, selectShop }) {
       <FlatList
         // style={styles.shopList__list}
         data={shops}
+        initialNumToRender={10}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
         keyExtractor={(item) => item.id}

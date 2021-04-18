@@ -17,9 +17,9 @@ export const ShopProvider = ({ children }) => {
     fetchProducts();
   }, []);
 
-  useEffect(() => {
-    getFeeds();
-  }, [shops, products]);
+  // useEffect(() => {
+  //   getFeeds();
+  // }, [shops, products]);
 
   const fetchShops = () => {
     database.ref("categories").on("value", (snapshot) => {
@@ -47,7 +47,7 @@ export const ShopProvider = ({ children }) => {
       });
   };
 
-  const getFeeds = () => {
+  const getAllFeeds = () => {
     // var newFeeds = shops
     // .map((shop) => ({ ...shop.newsfeed, store_id: shop.key }))
     // .filter((value) => value !== undefined);
@@ -70,9 +70,37 @@ export const ShopProvider = ({ children }) => {
 
     var finalFeeds = feedsFromShops
       .concat(products)
-      .sort((x, y) => new Date(y.date_update) - new Date(x.date_update));
+      .sort(
+        (x, y) => new Date(y.newsfeed_update) - new Date(x.newsfeed_update)
+      );
 
-    setFeeds(finalFeeds);
+    // setFeeds(finalFeeds);
+    // console.log("FINAL FEEDS", finalFeeds);
+    return finalFeeds;
+  };
+
+  const getStoreFeeds = (id) => {
+    var feedsFromShops = [];
+    shops.forEach((shop) => {
+      var newsfeed = shop.newsfeed;
+      if (newsfeed !== undefined) {
+        var feedOne = formatNewsfeed(newsfeed, shop.key);
+        feedsFromShops = feedsFromShops.concat(feedOne);
+      }
+    });
+
+    feedsFromShops = feedsFromShops.filter(
+      (item) => item.newsfeed_status === "Enabled"
+    );
+
+    var finalFeeds = feedsFromShops
+      .concat(products)
+      .sort((x, y) => new Date(y.newsfeed_update) - new Date(x.newsfeed_update))
+      .filter((item) => item.store_id === id);
+
+    // setFeeds(finalFeeds);
+    // console.log("FINAL FEEDS", finalFeeds);
+    return finalFeeds;
   };
 
   const getShopInfo = (id) => {
@@ -88,6 +116,8 @@ export const ShopProvider = ({ children }) => {
     products,
     loading,
     getShopInfo,
+    getAllFeeds,
+    getStoreFeeds,
   };
 
   return (

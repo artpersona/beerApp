@@ -13,7 +13,7 @@ import { useShopContext } from "../context/ShopContext";
 
 export default function Card({ feed }) {
   const { getShopInfo } = useShopContext();
-  var shopInfo = getShopInfo(feed.store_key);
+  var shopInfo = getShopInfo(feed.store_id);
 
   const redirect = () => {
     Linking.openURL(
@@ -54,7 +54,11 @@ export default function Card({ feed }) {
             </View>
           )}
           {feed.title && <Text style={styles.card__name}>{feed.title}</Text>}
-          {feed.text && <Text style={styles.card__caption}>{feed.text}</Text>}
+          {feed.text && (
+            <Text style={styles.card__caption}>
+              {feed.text.replace(/(<([^>]+)>)/gi, "")}
+            </Text>
+          )}
           {feed.price && (
             <Text style={styles.card__price}>
               <Text style={styles.card__label}>Price:</Text>{" "}
@@ -136,6 +140,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     // color: Colors.primary,
     color: "#C4C4C4",
+    textAlign: "center",
   },
   card__imageContainer: {
     borderRadius: 10,

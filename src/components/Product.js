@@ -56,7 +56,9 @@ export default function Product({ product }) {
 
           <Text style={styles.card__name}>{product.name}</Text>
 
-          <Text style={styles.card__caption}>{product.description}</Text>
+          <Text style={styles.card__caption}>
+            {product.description.replace(/(<([^>]+)>)/gi, "")}
+          </Text>
 
           <Text style={styles.card__price}>
             <Text style={styles.card__label}>Price:</Text>{" "}
@@ -102,7 +104,7 @@ const styles = StyleSheet.create({
     fontSize: 10,
   },
   card__name: {
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: "700",
     textAlign: "center",
     color: "#fff",

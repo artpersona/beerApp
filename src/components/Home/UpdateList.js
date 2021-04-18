@@ -4,6 +4,7 @@ import Card from "../Card";
 import Product from "../Product";
 
 export default function UpdateList({ feeds }) {
+  // console.log("feeds", feeds);
   return (
     <View style={styles.updateList}>
       <FlatList

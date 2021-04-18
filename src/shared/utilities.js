@@ -11,7 +11,7 @@ export const formatNewsfeed = (data, storeKey) => {
   Object.entries(data).forEach(([key, value]) => {
     newData = [
       ...newData,
-      { id: key, store_key: storeKey, category: "custom_feed", ...value },
+      { id: key, store_id: storeKey, category: "custom_feed", ...value },
     ];
   });
   return newData;
