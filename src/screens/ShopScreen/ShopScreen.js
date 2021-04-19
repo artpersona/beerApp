@@ -5,7 +5,6 @@ import Colors from "../../shared/styles/Colors";
 import { ShopsRoute } from "../../routes/ShopsRoute";
 import { useShopContext } from "../../context/ShopContext";
 import empty from "../../img/empty.png";
-import LoadingScreen from "../../components/LoadingScreen";
 
 export default function ShopScreen({ route }) {
   const { products, getStoreFeeds } = useShopContext();

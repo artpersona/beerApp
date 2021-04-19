@@ -1,6 +1,13 @@
+// export default {
+//   background: "#26262D",
+//   header: "#f6f6f6",
+//   primary: "#C4C4C4",
+//   white: "#ffffff",
+// };
+
 export default {
-  background: "#26262D",
+  background: "#ffffff",
   header: "#f6f6f6",
-  primary: "#C4C4C4",
-  white: "#ffffff",
+  primary: "#111111",
+  white: "#000000",
 };

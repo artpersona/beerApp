@@ -7,6 +7,8 @@ import {
   TouchableOpacity,
   Linking,
 } from "react-native";
+// import { WebView } from "react-native-webview";
+import HTML from "react-native-render-html";
 import Colors from "../shared/styles/Colors";
 import { LinearGradient } from "expo-linear-gradient";
 import { useShopContext } from "../context/ShopContext";
@@ -55,9 +57,11 @@ export default function Card({ feed }) {
           )}
           {feed.title && <Text style={styles.card__name}>{feed.title}</Text>}
           {feed.text && (
-            <Text style={styles.card__caption}>
-              {feed.text.replace(/(<([^>]+)>)/gi, "")}
-            </Text>
+            // <Text style={styles.card__caption}>
+            //   {feed.text.replace(/(<([^>]+)>)/gi, "")}
+            // </Text>
+            // <WebView originWhitelist={["*"]} source={{ html: feed.text }} />
+            <HTML source={{ html: feed.text }} />
           )}
           {feed.price && (
             <Text style={styles.card__price}>
@@ -96,7 +100,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   card__store: {
-    color: "#fff",
+    color: Colors.white,
     fontSize: 14,
   },
   card__handle: {
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
     textAlign: "center",
-    color: "#fff",
+    color: Colors.white,
     // color: Colors.primary,
   },
   card__header: {
@@ -139,7 +143,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     paddingVertical: 10,
     // color: Colors.primary,
-    color: "#C4C4C4",
+    color: Colors.primary,
     textAlign: "center",
   },
   card__imageContainer: {

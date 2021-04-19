@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
   },
   card__store: {
-    color: "#fff",
+    color: Colors.white,
     fontSize: 14,
   },
   card__handle: {
@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "700",
     textAlign: "center",
-    color: "#fff",
+    color: Colors.white,
     // color: Colors.primary,
   },
   card__header: {
@@ -139,14 +139,14 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     // color: Colors.primary,
     textAlign: "center",
-    color: "#C4C4C4",
+    color: Colors.primary,
   },
   card__price: {
     fontSize: 15,
     // paddingVertical: 5,
     // color: Colors.primary,
     textAlign: "justify",
-    color: "#C4C4C4",
+    color: Colors.primary,
   },
   card__label: {
     fontWeight: "700",
