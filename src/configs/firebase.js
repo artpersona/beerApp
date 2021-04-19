@@ -21,3 +21,19 @@ const firebaseConfig = {
 };
 
 export default firebaseConfig;
+
+// "<p><span style=\"color: rgb(0, 0, 0);\">Mas barato kesa palengke</span></p>"
+// "<p><span style=\"color: rgb(0, 0, 0);\">Straight gikan sa bukid</span></p>"
+
+// "<p><br></p>"
+// "<p><br></p>"
+
+// "<p><span style=\"color: rgb(0, 0, 0);\">﻿Cut off for orders: 5pm of Mar30 (Tues)</span></p>"
+// "<p><span style=\"color: rgb(0, 0, 0);\">Delivery: afternoon of Mar31 (Wed)</span></p>"
+// "<p><span style=\"color: rgb(0, 0, 0);\">Order now while stocks last! Just message us or go to&nbsp;</span><a href=\"https://sureplus.us10.list-manage.com/track/click?u=079851d00726fd7cacb1c8abc&amp;id=3f6f3f12a3&amp;e=dc2ab5b1c5\" rel=\"noopener noreferrer\" target=\"_blank\" style=\"color: rgb(0, 0, 0); background-color: rgb(255, 255, 255);\">www.sureplus.net/shop</a></p>"
+
+// "<p><br></p>"
+
+// "<p><span style=\"color: rgb(0, 0, 0);\">*Note:</span></p>"
+// "<p><span style=\"color: rgb(0, 0, 0);\">We deliver anywhere in Davao (for only P55+)</span></p>"
+// "<p><span style=\"color: rgb(0, 0, 0);\">Pick-up in Toril, Bangkal, Maa, Poblacion District &amp; Buhangin also possible</span></p>"
