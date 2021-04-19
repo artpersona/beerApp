@@ -3,6 +3,7 @@
 //   header: "#f6f6f6",
 //   primary: "#C4C4C4",
 //   white: "#ffffff",
+//   link: "#0000EE",
 // };
 
 export default {
@@ -10,4 +11,5 @@ export default {
   header: "#f6f6f6",
   primary: "#111111",
   white: "#000000",
+  link: "#0000EE",
 };

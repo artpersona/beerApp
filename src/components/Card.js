@@ -23,6 +23,20 @@ export default function Card({ feed }) {
     );
   };
 
+  const tagStyles = {
+    p: {
+      marginBottom: 5,
+      fontSize: 14,
+      color: Colors.primary,
+    },
+    a: {
+      color: Colors.link,
+      fontSize: 14,
+    },
+  };
+
+  const ignoredStyles = ["color", "background-color"];
+
   return (
     <LinearGradient
       colors={["#0FEFFD", "#FF00F5"]}
@@ -61,7 +75,11 @@ export default function Card({ feed }) {
             //   {feed.text.replace(/(<([^>]+)>)/gi, "")}
             // </Text>
             // <WebView originWhitelist={["*"]} source={{ html: feed.text }} />
-            <HTML source={{ html: feed.text }} />
+            <HTML
+              source={{ html: feed.text }}
+              tagsStyles={tagStyles}
+              ignoredStyles={ignoredStyles}
+            />
           )}
           {feed.price && (
             <Text style={styles.card__price}>
@@ -113,6 +131,7 @@ const styles = StyleSheet.create({
     fontWeight: "700",
     textAlign: "center",
     color: Colors.white,
+    marginBottom: 10,
     // color: Colors.primary,
   },
   card__header: {
