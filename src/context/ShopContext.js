@@ -48,58 +48,35 @@ export const ShopProvider = ({ children }) => {
   };
 
   const getAllFeeds = () => {
-    // var newFeeds = shops
-    // .map((shop) => ({ ...shop.newsfeed, store_id: shop.key }))
-    // .filter((value) => value !== undefined);
-    // .filter((value) => value.newsfeed_status === "Enabled");
-    // var finalFeeds = newFeeds.map((value) => collectIdsAndDocs(value));
-    // console.log("NEW FEEDS", newFeeds);
+    // var feedsFromShops = [];
+    // shops.forEach((shop) => {
+    //   var newsfeed = shop.newsfeed;
+    //   if (newsfeed !== undefined) {
+    //     var feedOne = formatNewsfeed(newsfeed, shop.key);
+    //     feedsFromShops = feedsFromShops.concat(feedOne);
+    //   }
+    // });
 
-    var feedsFromShops = [];
-    shops.forEach((shop) => {
-      var newsfeed = shop.newsfeed;
-      if (newsfeed !== undefined) {
-        var feedOne = formatNewsfeed(newsfeed, shop.key);
-        feedsFromShops = feedsFromShops.concat(feedOne);
-      }
-    });
+    // feedsFromShops = feedsFromShops.filter(
+    //   (item) => item.newsfeed_status === "Enabled"
+    // );
 
-    feedsFromShops = feedsFromShops.filter(
-      (item) => item.newsfeed_status === "Enabled"
-    );
-
-    var finalFeeds = feedsFromShops
-      .concat(products)
-      .sort(
-        (x, y) => new Date(y.newsfeed_update) - new Date(x.newsfeed_update)
-      );
+    // var finalFeeds = feedsFromShops
+    //   .concat(products)
+    //   .sort(
+    //     (x, y) => new Date(y.newsfeed_update) - new Date(x.newsfeed_update)
+    //   );
 
     // setFeeds(finalFeeds);
     // console.log("FINAL FEEDS", finalFeeds);
-    return finalFeeds;
+    return products;
   };
 
   const getStoreFeeds = (id) => {
-    var feedsFromShops = [];
-    shops.forEach((shop) => {
-      var newsfeed = shop.newsfeed;
-      if (newsfeed !== undefined) {
-        var feedOne = formatNewsfeed(newsfeed, shop.key);
-        feedsFromShops = feedsFromShops.concat(feedOne);
-      }
-    });
-
-    feedsFromShops = feedsFromShops.filter(
-      (item) => item.newsfeed_status === "Enabled"
-    );
-
-    var finalFeeds = feedsFromShops
-      .concat(products)
+    var finalFeeds = products
       .sort((x, y) => new Date(y.newsfeed_update) - new Date(x.newsfeed_update))
       .filter((item) => item.store_id === id);
 
-    // setFeeds(finalFeeds);
-    // console.log("FINAL FEEDS", finalFeeds);
     return finalFeeds;
   };
 

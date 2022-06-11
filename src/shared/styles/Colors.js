@@ -12,4 +12,9 @@ export default {
   primary: "#111111",
   white: "#000000",
   link: "#0000EE",
+  cart: "#FF891D",
+  darkestGrey: "#626262",
+  header: "#434343",
+  darkGray: "#9D9D9D",
+  darkGreen: "#FFD04E",
 };

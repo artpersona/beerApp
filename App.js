@@ -3,13 +3,16 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { FirebaseProvider } from "./src/context/FirebaseContext";
 import { ShopProvider } from "./src/context/ShopContext";
+import { OrderProvider } from "./src/context/OrderContext";
 import MainScreen from "./src/Main";
 
 export default function App() {
   return (
     <FirebaseProvider>
       <ShopProvider>
-        <MainScreen />
+        <OrderProvider>
+          <MainScreen />
+        </OrderProvider>
       </ShopProvider>
     </FirebaseProvider>
   );

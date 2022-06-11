@@ -8,12 +8,22 @@ import {
   View,
 } from "react-native";
 import Colors from "../../shared/styles/Colors";
+import Icon from "react-native-vector-icons/EvilIcons";
+import { useNavigation } from "@react-navigation/native";
 
 export default function ShopList({ shops, selectShop }) {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.shopList}>
       <View style={styles.shopList__header}>
-        <Text style={styles.shopList__title}>Sureplus</Text>
+        <View style={{ flexDirection: "row", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => navigation.openDrawer()}>
+            <Icon name="navicon" size={26} color="black" />
+          </TouchableOpacity>
+
+          <Text style={styles.shopList__title}>Beer App</Text>
+        </View>
         <Text style={styles.shopList__subtitle}>All Restaurants</Text>
       </View>
       <FlatList
@@ -29,13 +39,6 @@ export default function ShopList({ shops, selectShop }) {
           </TouchableOpacity>
         )}
       />
-      {/* <View style={styles.shopList__list}>
-        {shops.map((shop) => (
-          <TouchableOpacity key={shop.id} onPress={() => selectShop(shop)}>
-            <Image source={{ uri: shop.img }} style={styles.shopList__image} />
-          </TouchableOpacity>
-        ))}
-      </View> */}
     </View>
   );
 }
