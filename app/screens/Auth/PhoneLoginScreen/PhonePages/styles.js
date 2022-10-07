@@ -1,12 +1,12 @@
 import { StyleSheet, Dimensions } from "react-native";
 import { RFValue } from "react-native-responsive-fontsize";
-import { isTablet } from "../../../../utils/device.utility";
+import { deviceHeight, isTablet } from "../../../../utils/device.utility";
 import { Colors } from "../../../../config";
 const d = Dimensions.get("window");
 
 export default StyleSheet.create({
   container: {
-    marginTop: d.height / 12,
+    // marginTop: d.height / 12,
     flex: 1,
   },
 
@@ -18,7 +18,7 @@ export default StyleSheet.create({
 
   number__text: {
     fontFamily: "OpenSans_semiBold",
-    color: "black",
+    color: "white",
     textAlign: "center",
     fontSize: RFValue(17),
     marginBottom: "5%",
@@ -37,16 +37,7 @@ export default StyleSheet.create({
     padding: RFValue(15),
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: Colors.primary,
-    borderRadius: RFValue(10),
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    backgroundColor: Colors.secondary,
   },
   next__text: {
     fontSize: RFValue(15),
@@ -61,11 +52,12 @@ export default StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: "whitesmoke",
+    color: "white",
   },
 
   button__container: {
     position: "absolute",
-    bottom: 0,
+    bottom: deviceHeight * 0.2,
     width: "100%",
   },
 });

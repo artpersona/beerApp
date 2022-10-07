@@ -4,8 +4,7 @@ import { Theme, Colors } from "../../../config";
 export default StyleSheet.create({
   imageBackground: {
     flex: 1,
-    width: "100%",
-    height: "100%",
+    backgroundColor: "red",
   },
   buttonContainer: {
     width: "90%",

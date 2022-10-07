@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
 
   card: {
     paddingHorizontal: 10,
-    backgroundColor: Colors.white,
+    backgroundColor: "#C8C8C8",
     borderRadius: 5,
     height: "100%",
   },
@@ -286,8 +286,8 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
   card__button: {
-    backgroundColor: "purple",
-    paddingVertical: 7,
+    backgroundColor: Colors.primary,
+    paddingVertical: RFValue(15),
     borderRadius: 5,
     marginVertical: 10,
   },

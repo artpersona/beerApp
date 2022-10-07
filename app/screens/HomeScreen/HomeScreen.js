@@ -81,7 +81,7 @@ function HomeScreen() {
       }}
       drawerPosition={"left"}
       openByDefault={false}
-      // drawerContent={(props) => <CustomDrawerContent {...props} />}
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
       screenOptions={{ animationEnabled: true, headerShown: false }}
       initialRouteName="Shop"
     >

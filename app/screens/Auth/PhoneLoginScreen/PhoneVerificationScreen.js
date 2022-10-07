@@ -1,25 +1,62 @@
 import React from "react";
-import { View, Text, Dimensions } from "react-native";
+import { View, Text, TouchableOpacity, Dimensions, Image } from "react-native";
 import styles from "./styles";
 import OTP from "./PhonePages/OTP";
+import { LinearGradient } from "expo-linear-gradient";
+import Icon from "react-native-vector-icons/Feather";
+import { Colors } from "../../../config";
 
 const d = Dimensions.get("window");
 
 function PhoneVerificationScreen({ route }) {
   const { verificationId } = route.params;
   return (
-    <View style={styles.container}>
-      <View style={styles.header__container}>
-        <Text style={styles.davao__text}>Davao</Text>
-        <Text style={styles.market__text}>Market</Text>
-      </View>
+    <>
+      <LinearGradient
+        // Background Linear Gradient
+        colors={["#891C1A", "#651A15", "#1D1D1F"]}
+        locations={[0.1, 0.1, 0.4]}
+        style={styles.background}
+      />
 
-      <View style={{ height: d.height / 1.5, backgroundColor: "white" }}>
-        <View style={styles.wrapper}>
-          <OTP verificationId={verificationId} />
+      <View style={styles.container}>
+        <View
+          style={{
+            paddingHorizontal: 10,
+            position: "absolute",
+            left: 0,
+          }}
+        >
+          <TouchableOpacity
+            activeOpacity={0.5}
+            onPress={() => navigation.goBack()}
+          >
+            <Icon
+              name="chevron-left"
+              size={30}
+              color={Colors.white}
+              style={{ marginLeft: 10, marginTop: 34 }}
+            />
+          </TouchableOpacity>
+        </View>
+        {/* END:: Back button */}
+
+        <View style={styles.imageHeader}>
+          <Image
+            source={require("../../../assets/newImages/authBg.png")}
+            style={styles.backgroundImage}
+            resizeMode="contain"
+          />
+          <Text style={styles.market__text}>BEER APP</Text>
+        </View>
+
+        <View style={{ height: d.height / 1.5 }}>
+          <View style={styles.wrapper}>
+            <OTP verificationId={verificationId} />
+          </View>
         </View>
       </View>
-    </View>
+    </>
   );
 }
 

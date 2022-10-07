@@ -47,7 +47,7 @@ function OrderItemsModal({ isVisible, setIsVisible, ordersWithSection }) {
       style={styles.modal}
     >
       <View style={styles.modal__container}>
-        <StatusBar backgroundColor="#61dafb" />
+        <StatusBar backgroundColor="#651A15" />
         <View style={styles.modal__header}>
           <TouchableOpacity
             onPress={() => setIsVisible(false)}

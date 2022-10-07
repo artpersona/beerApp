@@ -1,9 +1,9 @@
 /* eslint-disable linebreak-style */
 export default {
   // primary: "",
-  primary: "#35333e",
+  primary: "#651A15",
   header: "#434343",
-  secondary: "#acb6cc",
+  secondary: "#D39708",
   tertiary: "#fab316",
   green: "#87B144",
   darkGreen: "#FFD04E", //dark Yellow

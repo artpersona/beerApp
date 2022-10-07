@@ -61,10 +61,11 @@ export default StyleSheet.create({
     fontWeight: "bold",
   },
   paymentNotes: {
-    ...Theme.inputBorderedContainer,
     // margin: 20,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
+    paddingHorizontal: 10,
+    paddingVertical: 5,
+    borderWidth: 1,
+    borderColor: Colors.primary,
   },
   paymentNoteHeader: {
     color: Colors.secondary,

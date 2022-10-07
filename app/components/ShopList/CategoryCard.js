@@ -9,6 +9,7 @@ import {
 import { deviceWidth } from "../../utils/device.utility";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import { RFValue } from "react-native-responsive-fontsize";
 
 function CategoryCard({ item }) {
   const navigation = useNavigation();
@@ -39,7 +40,9 @@ const styles = StyleSheet.create({
     height: deviceWidth / 3,
     marginHorizontal: 2,
     marginVertical: 5,
-    width: deviceWidth / 3,
+    width: deviceWidth / 2.5,
+    borderRadius: RFValue(15),
+    overflow: "hidden",
   },
   image: {
     flex: 1,

@@ -3,8 +3,8 @@ import React, { useContext, useState } from "react";
 import { DrawerContentScrollView, DrawerItem } from "@react-navigation/drawer";
 
 import { LinearGradient } from "expo-linear-gradient";
-import { Button, Text } from "native-base";
-import { View, Image } from "react-native";
+import { View, Image, Text, TouchableHighlight } from "react-native";
+
 import Icon from "react-native-vector-icons/Feather";
 import styles from "./styles";
 import { Storage } from "../../utils";
@@ -58,7 +58,7 @@ function CustomDrawerContent(props) {
       <View style={styles.iconContainer}>
         {/* START:: Close drawer button */}
         <View style={styles.buttonContainer}>
-          <Button
+          <TouchableHighlight
             transparent
             activeOpacity={0.5}
             onPress={() => navigation.closeDrawer()}
@@ -69,7 +69,7 @@ function CustomDrawerContent(props) {
               color="#FFF"
               style={(styles.closeIcon, style)}
             />
-          </Button>
+          </TouchableHighlight>
         </View>
       </View>
 

@@ -93,7 +93,7 @@ const ScrollSpy = (props) => {
 
   return (
     <>
-      <StatusBar backgroundColor={`rgb(186, 11, 86)`} />
+      <StatusBar backgroundColor={`#651A15`} />
       <Animated.View
         style={[
           style.topHeaderStyle,

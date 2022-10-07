@@ -24,7 +24,7 @@ export default function Main() {
       <StatusBar
         barStyle="light-content"
         translucent={true}
-        backgroundColor={Colors.secondary}
+        backgroundColor={Colors.primary}
       />
 
       <FirebaseProvider>

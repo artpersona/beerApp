@@ -18,8 +18,7 @@ export default StyleSheet.create({
     justifyContent: "space-around",
   },
   buttonApply: {
-    backgroundColor: Colors.primary,
-    borderRadius: buttonBorderRadius,
+    backgroundColor: Colors.secondary,
     height: buttonHeight,
   },
   buttonDisabled: {

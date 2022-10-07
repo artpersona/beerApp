@@ -16,9 +16,10 @@ export default StyleSheet.create({
     },
     shadowOpacity: 0.22,
     shadowRadius: 2.22,
-
     elevation: 3,
     backgroundColor: "white",
+    borderRadius: RFValue(15),
+    overflow: "hidden",
   },
   image: {
     borderRadius: 100,

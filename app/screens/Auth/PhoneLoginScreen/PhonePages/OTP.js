@@ -32,14 +32,17 @@ function OTP({ verificationId }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.container__header}>OTP Verification</Text>
-      <Text style={styles.number__text}>Enter 6-digit OTP</Text>
+      <Text style={[styles.number__text, { marginBottom: "12%" }]}>
+        OTP Verification
+      </Text>
       <TextInput
         keyboardType={"phone-pad"}
         underlineColorAndroid="transparent"
         style={styles.input__field}
         onChangeText={(e) => handleCodeChange(e)}
         maxLength={6}
+        placeholder="Enter 6 digit OTP"
+        placeholderTextColor="#FFF"
       />
       <Text style={[styles.note__text, { marginTop: 25 }]}>
         A 6-digit OTP will be sent via SMS to verify your number

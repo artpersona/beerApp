@@ -1,16 +1,48 @@
 import { StyleSheet } from "react-native";
 import { Theme, Colors } from "../../../config";
 import { RFValue, RFPercentage } from "react-native-responsive-fontsize";
-import { isTablet, deviceWidth } from "../../../utils/device.utility";
+import {
+  isTablet,
+  deviceWidth,
+  deviceHeight,
+} from "../../../utils/device.utility";
 const buttonWidth = isTablet ? RFPercentage(50) : "100%";
 const imageSize = isTablet ? 200 : 120;
-const titleLocation = isTablet ? RFValue(120) : RFValue(80);
 const iconLocation = isTablet ? 70 : 30;
 export default StyleSheet.create({
+  buttonActive: {
+    backgroundColor: "#818184",
+    paddingVertical: "7%",
+  },
+  buttonContainer: {
+    marginVertical: RFValue(10),
+    width: buttonWidth,
+    alignSelf: "center",
+    borderWidth: 1,
+    borderColor: "whitesmoke",
+  },
+  button: {
+    backgroundColor: "#1D1D1F",
+    paddingVertical: "7%",
+  },
+  background: {
+    flex: 1,
+  },
+  imageHeader: {
+    width: "125%",
+    height: deviceHeight * 0.38,
+    borderBottomLeftRadius: deviceWidth * 0.6,
+    borderBottomRightRadius: deviceWidth * 0.6,
+    overflow: "hidden",
+    alignSelf: "center",
+  },
+  backgroundImage: {
+    width: "100%",
+    height: "100%",
+  },
   container: {
-    top: "10%",
+    top: "5%",
     paddingHorizontal: 40,
-    backgroundColor: "white",
     height: "100%",
   },
   img: {
@@ -19,9 +51,8 @@ export default StyleSheet.create({
   },
   imageBackground: {
     flex: 1,
-    width: Theme.getScreenWidth,
-    height: Theme.getScreenHeight + 50,
-    backgroundColor: "white",
+    position: "absolute",
+    width: "100%",
   },
   footerContainer: {
     flexDirection: "row",
@@ -38,11 +69,7 @@ export default StyleSheet.create({
     fontWeight: "bold",
     color: Colors.secondary,
   },
-  buttonContainer: {
-    marginVertical: 5,
-    width: buttonWidth,
-    alignSelf: "center",
-  },
+
   reseller__group: {
     marginTop: isTablet ? 80 : 30,
   },
@@ -70,7 +97,12 @@ export default StyleSheet.create({
     fontSize: RFValue(21),
     textAlign: "center",
     fontFamily: "OpenSans_semiBold",
-    marginBottom: "5%",
+    color: Colors.white,
+    position: "absolute",
+    left: 0,
+    right: 0,
+    bottom: deviceHeight * 0.05,
+    alignItems: "center",
   },
 
   or__text: {
